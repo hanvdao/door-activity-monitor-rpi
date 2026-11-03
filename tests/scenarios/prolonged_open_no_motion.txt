@@ -1,0 +1,4 @@
+# Door held open past the 60 s threshold with no motion in the last 10 s.
+# Expected: prolonged opening, no recent motion.
++0.000 door 1
++65.000 door 0

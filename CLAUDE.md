@@ -6,10 +6,18 @@ NDJSON logs; a supervisor keeps every child alive; a local CLI shows status
 and recent history. Design: docs/DESIGN.md.
 
 ## Commands
-- Build: `make` (binaries land in `bin/`). Clean: `make clean`.
+- The code is Linux only (SOCK_SEQPACKET, ppoll, getrandom, libgpiod).
+- On Linux / the Pi: `make` (binaries in `bin/`), `make test`, `make clean`.
+- On macOS: `make docker` and `make docker-test` build and test inside a
+  Debian bookworm container (binaries in `bin-linux/`); `make docker-shell`
+  for an interactive shell. Docker Desktop must be running.
 - Pick the C standard with `make CSTD=c23` (default `c17`). Compilers that
-  predate the `c23` name (e.g. Apple clang 16) need `CSTD=c2x`.
-- A change is DONE only when `make` builds clean with no warnings. Show output.
+  predate the `c23` name (e.g. gcc 12 in bookworm) need `CSTD=c2x`.
+- A change is DONE only when the build is warning-free and `make test`
+  (or `make docker-test`) passes. Show output.
+- Simulator: `bin/dam-sim --help`. Scenario scripts live in
+  `tests/scenarios/`; `tests/recv_check` is a stand-in hub that validates
+  the record contract.
 
 ## Hard constraints
 - Systems core is C (C17 or C23), compiled with `-Wall -Wextra -Werror`.

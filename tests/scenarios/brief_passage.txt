@@ -1,0 +1,6 @@
+# Brief opening with nearby motion (DESIGN.md section 3).
+# Expected episode label: possible passage, direction unknown.
++0.000 pir 1
++0.300 door 1
++1.500 door 0
++2.000 pir 0
