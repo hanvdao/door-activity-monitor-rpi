@@ -3,8 +3,7 @@
 Door contact + PIR sensor processes feed a hub over Unix domain sockets on a
 Raspberry Pi. The hub fuses both histories into door episodes and appends
 NDJSON logs; a supervisor keeps every child alive; a local CLI shows status
-and recent history. Design: the M2 design draft (to be checked in as
-docs/DESIGN.md).
+and recent history. Design: docs/DESIGN.md.
 
 ## Commands
 - Build: `make` (binaries land in `bin/`). Clean: `make clean`.
@@ -33,10 +32,10 @@ docs/DESIGN.md).
 - NEVER weaken, skip, or delete a test to make the suite pass.
 
 ## Ownership
-- <you>: hub (`src/hub`), storage layer (`src/storage`), CLI (`src/cli`),
+- Han Dao: hub (`src/hub`), storage layer (`src/storage`), CLI (`src/cli`),
   sensor simulator for dev/testing before hardware arrives (`src/sim`),
   design document, domain evaluation and storage tests.
-- <partner>: hardware setup and wiring, GPIO reader processes, supervisor,
+- Hao Chen: hardware setup and wiring, GPIO reader processes, supervisor,
   interrupt-vs-polling experiments, recovery tests.
 - Both: IPC record contract (`include/record.h`), integration, code review,
   limitations, the 48-hour run.
